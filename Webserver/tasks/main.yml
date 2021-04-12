@@ -1,0 +1,26 @@
+---
+# tasks file for Webserver
+
+- name: install httpd software
+  package: 
+    name: 
+    - "{{  server  }}"
+    - "{{  lang  }}"
+    state: present
+
+- name: copy webpage
+  template: 
+    dest: /var/www/html
+    src: ../files/index.php
+  notify: webserver
+
+- name: SELinux mode- Permissive
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: disable firewalld
+  firewalld:
+    port: 80/tcp
+    permanent: yes
+    state: disabled

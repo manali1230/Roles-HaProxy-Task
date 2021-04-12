@@ -1,0 +1,7 @@
+- hosts: Proxy
+  roles:
+  - role: myrole
+
+- hosts: Backend_Webserver
+  roles:
+  - role: Webserver

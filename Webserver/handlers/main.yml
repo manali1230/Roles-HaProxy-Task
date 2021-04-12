@@ -1,0 +1,9 @@
+---
+# handlers file for Webserver
+
+- name: webserver
+  service:
+    name: "httpd"
+    state: restarted
+    enabled: yes
+

@@ -1,0 +1,12 @@
+---
+# tasks file for myrole
+- name: install package haproxy
+  package: 
+    name: "{{  lb   }}"
+    state: present
+
+- name: copy the file
+  template:
+    dest: /etc/haproxy/haproxy.cfg
+    src: ../templates/haproxy.cfg
+  notify: haproxy-lb

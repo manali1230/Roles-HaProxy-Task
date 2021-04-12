@@ -1,0 +1,9 @@
+---
+# handlers file for myrole
+
+- name: haproxy-lb
+  service:
+    name: "haproxy"
+    state: restarted
+    enabled: yes
+
